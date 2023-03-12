@@ -6,6 +6,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./pokemon-card.component.sass'],
 })
 export class PokemonCardComponent {
+
+  @Input()
+  pokeName!: string;
+
   @Input()
   pokemon!: string;
 
@@ -18,6 +22,7 @@ export class PokemonCardComponent {
     return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${numeroFormatado}.png`;
   }
 
+  //Formatação do número do pokemon
   leadingZero(str: string | number, size = 3): string {
     let s = String(str);
 
