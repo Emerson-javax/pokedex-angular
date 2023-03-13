@@ -1,9 +1,21 @@
-<div class="pokemon-list">
-  <app-pokemon-card
-    *ngFor="let pokemon of pokemonService.pokemons; index as i"
-    [pokemon]="pokemon.name"
-    [numero]="i + 1"
-  ></app-pokemon-card>
+<div class="container">
+<ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
+<div class="pokemon" *ngIf="pokemon.status">
+  <div class="pokemon__image">
+    <img class="pokemon__image--list" [src]="pokemon.status.sprites.other.dream_world.front_default" [alt]="pokemon.name" />
+  </div>
+  <section>
+    <h3 class="pokemon__number">N° {{leadingZero(pokemon.status.id)}}</h3>
+    <h2 class="pokemon__name">{{pokemon.name}}</h2>
+    <ul class="pokemon__type">
+      <li *ngFor="let value of pokemon.status.types">
+        {{value.type.name}}
+      </li>
+    </ul>  
+  </section>  
 </div>
+</ng-template>
+</div>
+
 
 

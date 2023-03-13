@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../services/pokemon.service';
 
 @Component({
@@ -7,5 +7,25 @@ import { PokemonService } from '../services/pokemon.service';
   styleUrls: ['./pokemon-list.component.sass'],
 })
 export class PokemonListComponent {
+
+  public getAllPokemons: any;
+
   constructor(public pokemonService: PokemonService) {}
+
+  ngOnInit(): void {
+    this.pokemonService.carregarPokemon.subscribe(
+      res => {
+        this.getAllPokemons = res.results;
+        console.log(this.getAllPokemons)
+      }
+    )
+  }
+
+  public leadingZero( size: number ): string {
+    if (size < 10) {
+      return `000${size}`;
+    }
+    return size.toString();
+  }
+
 }
