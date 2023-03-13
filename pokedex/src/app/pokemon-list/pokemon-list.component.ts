@@ -23,7 +23,7 @@ export class PokemonListComponent {
 
   public leadingZero( size: number ): string {
     if (size < 10) {
-      return `000${size}`;
+      return `0${size}`;
     }
     return size.toString();
   }
