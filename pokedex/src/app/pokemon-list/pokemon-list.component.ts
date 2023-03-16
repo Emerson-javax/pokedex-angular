@@ -8,6 +8,9 @@ import { PokemonService } from '../services/pokemon.service';
 })
 export class PokemonListComponent {
 
+  public apiError: boolean = false;
+
+  private setAllPokemons: any;
   public getAllPokemons: any;
 
   constructor(public pokemonService: PokemonService) {}
@@ -15,17 +18,25 @@ export class PokemonListComponent {
   ngOnInit(): void {
     this.pokemonService.carregarPokemon.subscribe(
       res => {
-        this.getAllPokemons = res.results;
-        console.log(this.getAllPokemons)
+        this.setAllPokemons = res.results;
+        this.getAllPokemons = this.setAllPokemons;
       }
-    )
+    );
   }
 
   public leadingZero( size: number ): string {
     if (size < 10) {
-      return `000${size}`;
+      return `0${size}`;
     }
     return size.toString();
+  }
+
+  public getSearch(value: string){
+    const filter = this.setAllPokemons.filter( (res: any ) => {
+      return !res.name.indexOf(value.toLowerCase());
+    });
+
+    this.getAllPokemons = filter;
   }
 
 }

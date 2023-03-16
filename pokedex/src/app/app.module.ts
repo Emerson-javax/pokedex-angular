@@ -7,10 +7,11 @@ import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { PokemonService } from './services/pokemon.service';
+import { PokeSearchComponent } from './shared/poke-search/poke-search.component';
 
 
 @NgModule({
-  declarations: [AppComponent, PokemonListComponent],
+  declarations: [AppComponent, PokemonListComponent, PokeSearchComponent],
   imports: [BrowserModule, HttpClientModule],
   providers: [PokemonService],
   bootstrap: [AppComponent],
