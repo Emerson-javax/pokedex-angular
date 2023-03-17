@@ -8,10 +8,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { PokemonService } from './services/pokemon.service';
 import { PokeSearchComponent } from './shared/poke-search/poke-search.component';
+import { ModalComponent } from './shared/modal/modal.component';
 
 
 @NgModule({
-  declarations: [AppComponent, PokemonListComponent, PokeSearchComponent],
+  declarations: [AppComponent, PokemonListComponent, PokeSearchComponent, ModalComponent],
   imports: [BrowserModule, HttpClientModule],
   providers: [PokemonService],
   bootstrap: [AppComponent],

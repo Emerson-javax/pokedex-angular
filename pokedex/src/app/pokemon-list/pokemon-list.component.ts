@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PokemonService } from '../services/pokemon.service';
 
 @Component({
@@ -20,6 +20,9 @@ export class PokemonListComponent {
       res => {
         this.setAllPokemons = res.results;
         this.getAllPokemons = this.setAllPokemons;
+      },
+      error => {
+        this.apiError = true;
       }
     );
   }
@@ -38,5 +41,6 @@ export class PokemonListComponent {
 
     this.getAllPokemons = filter;
   }
+
 
 }

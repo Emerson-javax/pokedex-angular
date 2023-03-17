@@ -8,6 +8,7 @@
   </div>
   <section>
     <h3 class="pokemon__number">N° {{leadingZero(pokemon.status.id)}}</h3>
+    <app-modal></app-modal>
     <h2 class="pokemon__name">{{pokemon.name}}</h2>
     <ul class="pokemon__type">
       <li *ngFor="let value of pokemon.status.types">
